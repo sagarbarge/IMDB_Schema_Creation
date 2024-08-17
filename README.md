@@ -1,8 +1,13 @@
-# IMDb_Schema_Creation
-IMDb Schema Creation using provided data
+# IMDB_Schema_Creation
+
 
 # Problem Statement
-In this optional assignment, you will be given an Excel file which contains the ERD and data values for an 'IMDb' dataset. 
-You will use this extensively during your graded assignment after the module on Advanced SQL and Best Practices. 
-You will also look at a detailed problem statement in the assignment.
-For now, try to create the tables and insert the values for the entire schema in your workbench. 
+IMDB Schema Creation using provided data
+
+# Steps
+-In this assignment, given an Excel file which contains the ERD and data values for an 'IMDB' dataset. 
+-Using that excel table convert all table data to SQL insertable format using concat.
+-Create database, create tables, set relation among the tables using ERD
+-Insert all excel table data to SQL database.
+-Check all database
+-Create the tables and insert the values for the entire schema in your workbench. 
