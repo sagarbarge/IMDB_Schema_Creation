@@ -9,5 +9,4 @@ IMDB Schema Creation using provided data
 - Using that excel table convert all table data to SQL insertable format using concat.
 - Create database, create tables, set relation among the tables using ERD.
 - Insert all excel table data to SQL database.
-- Check all database, run queries on data
-- Create the tables and insert the values for the entire schema in your workbench. 
+- Check all database, run queries on data. 
