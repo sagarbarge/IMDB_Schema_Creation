@@ -5,16 +5,16 @@ CREATE DATABASE imdb;
 USE imdb;
 
 -- Creating tables for IMDB database
-CREATE TABLE names(
+CREATE TABLE names (
     id VARCHAR(10),
     name VARCHAR(40),
     height INT,
     date_of_birth DATE,
     known_for_movies VARCHAR(50),
-    PRIMARY KEY(id)
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE movies(
+CREATE TABLE movies (
     id VARCHAR(10),
     title VARCHAR(80),
     year INT,
@@ -24,34 +24,47 @@ CREATE TABLE movies(
     worldwide_gross_income VARCHAR(25),
     languages VARCHAR(130),
     production_company VARCHAR(80),
-    PRIMARY KEY(id)
+    PRIMARY KEY (id)
 );
 
-CREATE TABLE director_mapping(
+CREATE TABLE director_mapping (
     movie_id VARCHAR(10),
     name_id VARCHAR(10),
-    FOREIGN KEY(movie_id) REFERENCES movies(id),
-    FOREIGN KEY(name_id) REFERENCES names(id)
+    FOREIGN KEY (movie_id) REFERENCES movies (id),
+    FOREIGN KEY (name_id) REFERENCES names (id)
 );
 
-CREATE TABLE ratings(
+CREATE TABLE ratings (
     movie_id VARCHAR(10),
     avg_rating FLOAT,
     total_votes BIGINT,
     median_rating FLOAT,
-    FOREIGN KEY(movie_id) REFERENCES movies(id)
+    FOREIGN KEY (movie_id) REFERENCES movies (id)
 );
 
-CREATE TABLE genre(
+CREATE TABLE genre (
     movie_id VARCHAR(10),
     genre VARCHAR(10),
-    FOREIGN KEY(movie_id) REFERENCES movies(id)
+    FOREIGN KEY (movie_id) REFERENCES movies (id)
 );
 
-CREATE TABLE role_mapping(
+CREATE TABLE role_mapping (
     movie_id VARCHAR(10),
     name_id VARCHAR(10),
     category VARCHAR(10),
-    FOREIGN KEY(movie_id) REFERENCES movies(id),
-    FOREIGN KEY(name_id) REFERENCES names(id)
+    FOREIGN KEY (movie_id) REFERENCES movies (id),
+    FOREIGN KEY (name_id) REFERENCES names (id)
 );
+
+-- Adding primary keys to each table to uniquely identify rows
+ALTER TABLE director_mapping
+ADD PRIMARY KEY (movie_id, name_id);
+
+ALTER TABLE genre
+ADD PRIMARY KEY (movie_id, genre);
+
+ALTER TABLE ratings
+ADD PRIMARY KEY (movie_id);
+
+ALTER TABLE role_mapping
+ADD PRIMARY KEY (movie_id, name_id);
